@@ -32,6 +32,10 @@ module.exports = profileArray;
 
 var totalDifference = [];
 
+// var min = Math.min.apply(Math, totalDifference);
+
+var min = Math.min(totalDifference.join(', '));
+
 var i = 1;
 
 function add (a, b) {
@@ -55,11 +59,14 @@ function arrayDifference() {
 		var y = Math.abs(profileArray[0].scores[x] - profileArray[i].scores[x]);
 		difference.push(y);
 	}
-	// console.log(difference);
+	console.log(difference);
 	var total = difference.reduce(add, 0);
 	// console.log(total);
 	totalDifference.push(total);
-	console.log(totalDifference);
+	console.log(totalDifference.join(', '));
+	// console.log(min);
 }
 
 getArray();
+console.log(min);
+
