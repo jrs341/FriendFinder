@@ -4,7 +4,7 @@
 // These data sources hold arrays of information on table-data, waitinglist, etc.
 // ===============================================================================
 
-var tableData 		= require('../data/friends.js');
+var friendsData = require('../data/friends.js');
 // var waitListData 	= require('../data/waitinglist-data.js');
 
 
@@ -20,7 +20,7 @@ module.exports = function (app) {
 	// ---------------------------------------------------------------------------
 
 	app.get('/api/survey', function (req, res) {
-		res.json(tableData);
+		res.json(friendsData);
 	});
 
 	// app.get('/api/waitlist', function (req, res) {
@@ -38,13 +38,13 @@ module.exports = function (app) {
 	app.post('/api/survey', function (req, res) {
 		// Note the code here. Our "server" will respond to requests and let users know if they have a table or not.
 		// It will do this by sending out the value "true" have a table
-		if (tableData.length < 5) {
-			tableData.push(req.body);
+		// if (friendsData.length < 5) {
+			friendsData.push(req.body);
 			res.json(true); // KEY LINE
-		} else { // Or false if they don't have a table
-			waitListData.push(req.body);
-			res.json(false); // KEY LINE
-		}
+		// } else { // Or false if they don't have a table
+		// 	waitListData.push(req.body);
+		// 	res.json(false); // KEY LINE
+		// }
 	});
 
 	// ---------------------------------------------------------------------------
