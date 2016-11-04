@@ -24,17 +24,18 @@ var profileArray = [
 		name: 'Bob',
 		photo: 'at some link',
 		scores: [5,6,7]
+	},{
+		name: 'Heidi',
+		photo: 'at some link',
+		scores: [3,4,5]
 	}
 ];
 
-// Note how we export the array. This makes it accessible to other files using require.
 module.exports = profileArray;
 
 var totalDifference = [];
 
-// var min = Math.min.apply(Math, totalDifference);
-
-var min 
+var min = [];
 
 var positionArray = [];
 
@@ -44,22 +45,20 @@ function add (a, b) {
 	return a + b;
 }
 
+// This function grabs each element object in the profile array
+
 function getArray() {
 
 	for (i ; i < profileArray.length; i++) {
-		// console.log(profileArray[i].scores);
-		// return profileArray[i].scores;
 		arrayDifference();
-		// findMatch();
 	}
-	findMatch();
 }
+
+// This function determines the difference between the users profile and all of the saved profiles
 
 function arrayDifference() {
 	var difference = [];
 	for (var x = 0; x < profileArray[0].scores.length; x++) {
-		// console.log(profileArray[i].scores);
-		// console.log(profileArray[0].scores[x] - profileArray[i].scores[x]);
 		var y = Math.abs(profileArray[0].scores[x] - profileArray[i].scores[x]);
 		difference.push(y);
 	}
@@ -67,24 +66,31 @@ function arrayDifference() {
 	var total = difference.reduce(add, 0);
 	// console.log(total);
 	totalDifference.push(total);
-	console.log(totalDifference.join(', '));
-	// min = Math.min.apply(Math, totalDifference);
-	// console.log(min);
+	// console.log(totalDifference.join(', '));
+}
+
+// This function finds the minimum number or numbers in the position array and returns their position which will correspond to the profile array position i-1
+
+// Need to fix this function to find equal min numbers
+
+function findMatch() {
+
+	for (var i = 0; i < totalDifference.length; i++) {
+		min.push(Math.min.apply(Math, totalDifference));
+		// var position = totalDifference.indexOf(min);
+		// console.log(position);
+
+	}
+	
 	// var position = totalDifference.indexOf(min);
 	// positionArray.push(position);
 	// console.log(position);
-
-}
-
-function findMatch() {
-	min = Math.min.apply(Math, totalDifference);
-	var position = totalDifference.indexOf(min);
-	positionArray.push(position);
-	console.log(position);
-	console.log(positionArray);
+	// console.log(positionArray);
 }
 
 getArray();
+findMatch();
+console.log(min);
 
 // console.log(min);
 // console.log(positionArray);
