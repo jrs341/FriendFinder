@@ -34,7 +34,9 @@ var totalDifference = [];
 
 // var min = Math.min.apply(Math, totalDifference);
 
-var min = Math.min(totalDifference.join(', '));
+var min 
+
+var positionArray = [];
 
 var i = 1;
 
@@ -48,7 +50,9 @@ function getArray() {
 		// console.log(profileArray[i].scores);
 		// return profileArray[i].scores;
 		arrayDifference();
+		// findMatch();
 	}
+	findMatch();
 }
 
 function arrayDifference() {
@@ -64,9 +68,24 @@ function arrayDifference() {
 	// console.log(total);
 	totalDifference.push(total);
 	console.log(totalDifference.join(', '));
+	// min = Math.min.apply(Math, totalDifference);
 	// console.log(min);
+	// var position = totalDifference.indexOf(min);
+	// positionArray.push(position);
+	// console.log(position);
+
+}
+
+function findMatch() {
+	min = Math.min.apply(Math, totalDifference);
+	var position = totalDifference.indexOf(min);
+	positionArray.push(position);
+	console.log(position);
+	console.log(positionArray);
 }
 
 getArray();
-console.log(min);
+
+// console.log(min);
+// console.log(positionArray);
 
